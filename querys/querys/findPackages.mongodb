@@ -1,0 +1,3 @@
+use("krowfotografia")
+
+db.packages.find()

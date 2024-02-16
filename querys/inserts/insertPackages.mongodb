@@ -1,0 +1,34 @@
+use("krowfotografia")
+
+db.packages.insertOne({
+    "name": "basico boda",
+    "description": "Paquete para la realización de una boda en formato fotográfica.",
+    "price": 8500,
+    "category": "boda",
+    "duration": 5,
+    "discount":2500,
+    "apply_discount":true,
+    "have_session":true,
+    "session_time":60,
+    "reservation":1000,
+    "delivery_time":21,
+    "warranty":true,
+    "foto":{
+        "isphoto":true,
+        "portrait":true,
+        "digital_photo_qty":200,
+        "printed_photo_qty":80,
+        "portrait_size_widht":16,
+        "portrait_size_height":20,
+        "printed_size_widht":6,
+        "printed_size_height":8,
+        "format":[ "box","photobook","album" ]
+    },
+    "video":{
+        "isvideo":true,
+        "highlight":true,
+        "highlight_duration":10,
+        "video_duration":90,
+    }
+
+})

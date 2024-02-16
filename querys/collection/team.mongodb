@@ -1,0 +1,44 @@
+use("krowfotografia")
+
+db.createCollection('team',{
+    validator: {
+        $jsonSchema: {
+            bsonType: "object",
+            required: [ 'name','username','position' ],
+            properties:{
+                name: {  
+                    bsonType: "string" ,
+                },
+                firstname: {  
+                    bsonType:"string" ,
+                }, 
+                lastname: {  
+                    bsonType:"string" ,
+                },
+                username: {  
+                    bsonType:"string" ,
+                },
+                position: {
+                    bsonType: "string"
+                }
+            }
+        }
+    }
+})
+
+db.team.insertMany([
+    {
+        "name":"Emmanuel",
+        "firstname":"Hernández",
+        "lastname":"Valero",
+        "username":"krow",
+        "position":"photographer and editor"
+    },
+    {
+        "name":"Laura Cristiane",
+        "firstname":"Andrade",
+        "lastname":"Ayala",
+        "username":"Lau",
+        "position":"videographer"
+    }
+])

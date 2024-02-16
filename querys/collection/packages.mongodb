@@ -1,0 +1,128 @@
+use("krowfotografia")
+
+db.createCollection('packages',{
+    validator: {
+        $jsonSchema: {
+            bsonType: "object",
+            required: [ 'name','category','price'],
+            properties:{
+                name: { 
+                    bsonType: "string",
+                    description:"name of package"  
+                },
+                category: {  
+                    bsonType: "string",
+                    enum : ["boda","xv","bautizo","presentacion"],
+                    description:"type of service, can be 'boda' or 'xv'"    
+                },
+                price: {  
+                    bsonType: "number",
+                    description:"package's price"  
+                },
+                description:{
+                    bsonType: "string",
+                    description: "description of the package"
+                },
+                duration:{
+                    bsonType: "number",
+                    description: "duration in hours that the photo session"
+                },
+                discount:{
+                    bsonType: "number",
+                    description: "discount for this package if applicable"
+                },
+                apply_discount:{
+                    bsonType: "bool",
+                    description: "whether to apply a discount or not"
+                },
+                have_session:{
+                    bsonType: "bool",
+                    description: "if it is necessary to make a session"
+                },
+                session_time:{
+                    bsonType: "number",
+                    description: "how many minutes does the session take?"
+                },
+                reservation:{
+                    bsonType:"number",
+                    description: "How much money  must be paid for the reservation date"
+                },
+                delivery_time:{
+                    bsonType:"number",
+                    description: "Time that takes to deliver the photos and video"
+                },
+                warranty:{
+                    bsonType:"bool",
+                    description: "If the product comes with warranty or not"
+                },
+                foto:{
+                    bsonType: "object",
+                    description: "Object containing information about the photography.",
+                    properties:{
+                        isphoto:{
+                            bsonType: "bool",
+                            description: "Wheter the service includes making a photo."
+                        },
+                        digital_photo_qty:{
+                            bsonType: "number",
+                            description: "Number of digital photos that will be made."
+                        },
+                        printed_photo_qty:{
+                            bsonType: "number",
+                            description: "Number of printed photos that will be made."
+                        },
+                        portrait:{
+                            bsonType:"bool",
+                            description: "Portrait"
+                        },
+                        portrait_size_widht:{
+                            bsonType:"number",
+                            description: "Width of the Portrait in inches."
+                        },
+                        portrait_size_height:{
+                            bsonType:"number",
+                            description: "Height of the Portrait in inches."
+                        },
+                        printed_size_widht:{
+                            bsonType:"number",
+                            description: "Width of the Printed Photos in inches."
+                        },
+                        printed_size_height:{
+                            bsonType:"number",
+                            description: "Height of the Printed Photos in inches"
+                        },
+                        format:{
+                            bsonType: "array",
+                            items: {
+                                type: "string"
+                            },
+                            description: "The formats available for the prints. Can be 'albun', 'photobook' , 'box'"
+                        }
+                    }
+                },
+                video:{
+                    bsonType: "object",
+                    description: "Video information.",
+                    properties:{
+                        isvideo:{
+                            bsonType: "bool",
+                            description:"if the package contain a video" 
+                        },
+                        highlight :{
+                            bsonType: "bool",
+                            description:"if the package contain  a highlight video"
+                        },
+                        highlight_duration:{
+                            bsonType: "number",
+                            description:"duration  of the highlight video in minutes."
+                        },
+                        video_duration:{
+                            bsonType: "number",
+                            description:"duration   of the video in minutes."
+                        }
+                    }
+                }
+            }
+        }
+    }
+})

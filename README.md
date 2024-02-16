@@ -45,7 +45,7 @@ docker-compose up
 Puedes conectarte a la instancia de MongoDB en el contenedor usando el siguiente URI de MongoDB:
 
 ```plaintext
-mongodb://admin:test@localhost:27017/?authSource=admin&readPreference=primary&appname=MongoDB%20Compass&ssl=false
+mongodb://root:2332@localhost:27017/
 ```
 
 Si estás utilizando MongoDB Compass, puedes pegar este URI en el campo "Connect Using Connection String".
